@@ -59,32 +59,6 @@ $ git clone https://github.com/trexwithoutt/word-language-model.git
 $ cd word-language-model
 ```
 
-### Serve model through REST API
-
-FloydHub supports seving mode for demo and testing purpose. Before serving your model through REST API,
-you need to create a `floyd_requirements.txt` and declare the flask requirement in it. If you run a job
-with `--mode serve` flag, FloydHub will run the `app.py` file in your project
-and attach it to a dynamic service endpoint:
-
-```bash
-floyd run --gpu --mode serve --env pytorch-0.2  --data <USERNAME>/dataset/<PENN-TB3>/<VERSION>:input --data <REPLACE_WITH_JOB_OUTPUT_NAME>:model
-```
-
-The above command will print out a service endpoint for this job in your terminal console.
-
-The service endpoint will take a couple minutes to become ready. Once it's up, you can interact with the model by sending a POST request wih the number of words and the temperature that the model will use to generate text:
-```bash
-# Template
-# curl -X POST -o <NAME_&_PATH_DOWNLOADED_GENERATED_TEXT> -F "words=<NUMBER_OF_WORDS_TO_GENERATE>" -F "temperature=<TEMPERATURE>" <SERVICE_ENDPOINT>
-
-curl -X POST -o generated.txt -F "words=100" -F "temperature=3" https://www.floydlabs.com/expose/vk47ixT8NeYBTFeMavbWta
-```
-
-Any job running in serving mode will stay up until it reaches maximum runtime. So
-once you are done testing, **remember to shutdown the job!**
-
-*Note that this feature is in preview mode and is not production ready yet*
-
 ## More resources
 
 Some useful resources on NLP for Deep Learning and language modeling task:
