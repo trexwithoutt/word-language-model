@@ -58,6 +58,9 @@ Before you start, log in on FloydHub with the [floyd login](http://docs.floydhub
 $ git clone https://github.com/trexwithoutt/word-language-model.git
 $ cd word-language-model
 ```
+## Pre-train
+glove download from
+(https://github.com/3Top/word2vec-api)[https://github.com/3Top/word2vec-api]
 
 ## More resources
 
